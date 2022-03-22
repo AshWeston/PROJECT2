@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const userRoutes = require('./userRoute');
+// const userRoutes = require('./userRoute');
 
 // '/api/users' breakpoint
-router.use('/users', userRoutes);
+// router.use('/users', userRoutes);
 
 module.exports = router;
