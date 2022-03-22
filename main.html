@@ -194,15 +194,17 @@
               class="input-div border-b-2 relative grid my-5 py-1 focus:outline-none "
               style="grid-template-columns: 7% 93%"
             >
-              <div class="i ">
-                <i class="fas fa-user text-gray-500"></i>
+              <div class="i">
+                <i class="fas fa-envelope text-gray-500"></i>
+                
               </div>
               <div class="div ">
-                <h5 class = "text-gray-500 ">Username</h5>
                 <input
                   type="text"
-                  class="absolute w-full h-full py-2 px-3 outline-none inset-0 text-gray-700 border-b-2 border-gray-900 hover:border-green-400"
+                  class="absolute w-full h-full py-2 px-3 outline-none inset-0 text-gray-100 border-b-2 border-gray-900 hover:border-green-400"
                   style="background: none "
+                  placeholder="    Your Email"
+                  id = "email"
                 />
               </div>
             </div>
@@ -214,11 +216,12 @@
                 <i class="fas fa-lock text-gray-500"></i>
               </div>
               <div class="div">
-                <h5 class = "text-gray-500">Password</h5>
                 <input
                   type="password"
-                  class="absolute w-full h-full py-2 px-3 outline-none inset-0 text-gray-700 border-b-2 border-gray-900 hover:border-green-400"
+                  class="absolute w-full h-full py-2 px-3 outline-none inset-0 text-gray-100 border-b-2 border-gray-900 hover:border-green-400"
                   style="background: none"
+                  placeholder="    Password"
+                  id = "password"
                 />
               </div>
             </div>
@@ -237,6 +240,106 @@
           </form>
         </div>
       </div>
+
+          <!-- SIGNUP FORM -->
+
+          <div class="h-screen flex justify-center items-center">
+            <div class="bg-gray-900 border border-gray-800 shadow p-2 rounded-lg w-2/5 px-16 py-16 ">
+              <form>
+                <div class="flex font-bold justify-center ">
+                  <img
+                    class="h-20 w-20"
+                    src="images/user-image.jpg"
+                  />
+                </div>
+                <h2 class="text-3xl text-center text-gray-500 mb-4">Create Your Guru Account</h2>
+                <div
+                  class="input-div border-b-2 relative grid my-5 py-1 focus:outline-none "
+                  style="grid-template-columns: 7% 93%"
+                >
+                  <div class="i">
+                    <i class="fas fa-user text-gray-500"></i>
+                    
+                  </div>
+                  <div class="div ">
+                    <input
+                      type="text"
+                      class="absolute w-full h-full py-2 px-3 outline-none inset-0 text-gray-100 border-b-2 border-gray-900 hover:border-green-400"
+                      style="background: none "
+                      placeholder="   First Name"
+                      id = "firstname"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="input-div border-b-2 relative grid my-5 py-1 focus:outline-none "
+                  style="grid-template-columns: 7% 93%"
+                >
+                  <div class="i">
+                    <i class="fas fa-user text-gray-500"></i>
+                    
+                  </div>
+                  <div class="div ">
+                    <input
+                      type="text"
+                      class="absolute w-full h-full py-2 px-3 outline-none inset-0 text-gray-100 border-b-2 border-gray-900 hover:border-green-400"
+                      style="background: none "
+                      placeholder="   Last Name"
+                      id = "lastname"
+                    />
+                  </div>
+                </div>
+                <div
+                class="input-div border-b-2 relative grid my-5 py-1 focus:outline-none "
+                style="grid-template-columns: 7% 93%"
+              >
+                <div class="i">
+                  <i class="fas fa-envelope text-gray-500"></i>
+                  
+                </div>
+                <div class="div ">
+                  <input
+                    type="text"
+                    class="absolute w-full h-full py-2 px-3 outline-none inset-0 text-gray-100 border-b-2 border-gray-900 hover:border-green-400"
+                    style="background: none "
+                    placeholder="    Your Email"
+                    id = "email"
+                  />
+                </div>
+              </div>
+                
+                <div
+                  class="input-div border-b-2 relative grid my-5 py-1 focus:outline-none"
+                  style="grid-template-columns: 7% 93%"
+                >
+                  <div class="i">
+                    <i class="fas fa-lock text-gray-500"></i>
+                  </div>
+                  <div class="div">
+                    <input
+                      type="password"
+                      class="absolute w-full h-full py-2 px-3 outline-none inset-0 text-gray-100 border-b-2 border-gray-900 hover:border-green-400"
+                      style="background: none"
+                      placeholder="   Choose Password"
+                      id = "password"
+                    />
+                  </div>
+                </div>
+             
+                <a
+                  href="#"
+                  class="text-xs text-green-400 hover:text-green-500 float-right mb-4"
+                  >Already a Member? Log In Here</a
+                >
+                <button
+                  type="submit"
+                  class="w-full py-2 rounded-full bg-green-600 text-gray-300 focus:outline-none hover:text-gray-100"
+                >
+                  Sign Up Now
+                </button>
+              </form>
+            </div>
+          </div>
       
 
     <!--Container-->
@@ -505,9 +608,6 @@
 
 <script>
 
-
-/*Toggle dropdown list*/
-/*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
 
 const inputs = document.querySelectorAll("input");
   
