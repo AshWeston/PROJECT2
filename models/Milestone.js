@@ -11,7 +11,7 @@ Milestone.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    milestrone: {
+    milestone: {
       type: DataTypes.DATEONLY,
       allowNull: false,
     },
