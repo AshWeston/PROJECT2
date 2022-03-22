@@ -14,8 +14,8 @@ const seedDatabase = async () => {
 
     await Comment.bulkCreate(commentData);
     await Employee.bulkCreate(employeeData);
-    await Milestone.bulkCreate(milestoneData);
     await Project.bulkCreate(projectData);
+    await Milestone.bulkCreate(milestoneData);
     await Question.bulkCreate(questionData);
     await Role.bulkCreate(roleData);
     await Team.bulkCreate(teamData);
