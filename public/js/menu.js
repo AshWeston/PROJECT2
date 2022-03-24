@@ -17,8 +17,9 @@ const homeA = document.querySelector('.home');
 const dashboardA = document.querySelector('.dashboard');
 const questionA = document.querySelector('.question');
 
+document.onclick = check;
 
-const check = (e) => {
+function check(e) {
   var target = (e && e.target) || (event && event.srcElement);
 
   //User Menu
@@ -54,7 +55,7 @@ const check = (e) => {
   }
 }
 
-const checkParent = (t, elm) => {
+function checkParent(t, elm) {
   while (t.parentNode) {
     if (t == elm) {
       return true;
