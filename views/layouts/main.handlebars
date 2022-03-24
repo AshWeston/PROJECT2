@@ -33,7 +33,7 @@
   <nav id="header" class="bg-gray-900 fixed w-full z-10 top-0 shadow">
     <div class="w-full container mx-auto flex flex-wrap items-center mt-0 pt-3 pb-3 md:pb-0">
       <div class="w-1/2 pl-2 md:pl-0">
-        <a class="text-gray-100 text-base xl:text-xl no-underline hover:no-underline font-bold" href="#">
+        <a class="text-gray-100 text-base xl:text-xl no-underline hover:no-underline font-bold" href="/">
           <i class="fas fa-crown text-yellow-400 pr-3"></i>
           Guru
         </a>
@@ -58,16 +58,8 @@
               class="bg-gray-900 rounded shadow-md mt-2 absolute mt-12 top-0 right-0 min-w-full overflow-auto z-30 invisible">
               <ul class="list-reset">
                 <li>
-                  <a href="#" class="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline">My
-                    Projects</a>
-                </li>
-
-                <li>
-                  <hr class="border-t mx-2 border-gray-400" />
-                </li>
-                <li>
-                  <a href="#"
-                    class="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline">Logout</a>
+                  <button id="logout"
+                    class="w-full px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline">Logout</button>
                 </li>
               </ul>
             </div>
@@ -88,19 +80,25 @@
       <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-gray-900 z-20"
         id="nav-content">
         <ul class="list-reset lg:flex flex-1 items-center px-4 md:px-0">
-          <li class="mr-6 my-2 md:my-0">
-            <a href="#"
-              class="block py-1 md:py-3 pl-1 align-middle text-blue-400 no-underline hover:text-gray-100 border-b-2 border-blue-400 hover:border-blue-400">
-              <i class="fas fa-home fa-fw mr-3 text-blue-400"></i><span class="pb-1 md:pb-0 text-sm">Home</span>
+          <li id="home" class="mr-6 my-2 md:my-0">
+            <a href="/"
+              class="home block py-1 md:py-3 pl-1 align-middle text-blue-400 no-underline hover:text-gray-100 border-b-2 border-blue-400 hover:border-blue-400">
+              <i id="fav-home" class="fas fa-home fa-fw mr-3 text-blue-400"></i><span class="pb-1 md:pb-0 text-sm">Home</span>
             </a>
           </li>
-          <li class="mr-6 my-2 md:my-0">
-            <a href=""
-              class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-pink-400">
-              <i class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">My Dashboard</span>
+          <li id="dashboard" class="mr-6 my-2 md:my-0">
+            <a href="/dashboard"
+              class="dashboard block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-pink-400">
+              <i id="fav-dashboard" class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">My Dashboard</span>
             </a>
           </li>
-          <li class="mr-6 my-2 md:my-0">
+          <li id="question" class="mr-6 my-2 md:my-0">
+            <a href="/question"
+              class="question block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-red-400">
+              <i id="fav-question" class="fa fa-question fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Ask A Question</span>
+            </a>
+          </li>
+          {{!-- <li class="mr-6 my-2 md:my-0">
             <a href="#"
               class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-purple-400">
               <i class="fa fa-envelope fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Inbox</span>
@@ -111,13 +109,8 @@
               class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-green-400">
               <i class="fas fa-plus fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Create A Project</span>
             </a>
-          </li>
-          <li class="mr-6 my-2 md:my-0">
-            <a href="#"
-              class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-red-400">
-              <i class="fa fa-question fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Ask A Question</span>
-            </a>
-          </li>
+          </li> --}}
+          
         </ul>
       </div>
     </div>
