@@ -1,12 +1,16 @@
-const { route } = require('express/lib/application');
-
 const router = require('express').Router();
+const withAuth = require('../utils/auth');
 
-// '/' breakpoint
-router.get('/', async (req, res) => {
+// '/question' breakpoint
+router.get('/question', withAuth, async (req, res) => {
     try {
-        // res.sendFile(path.join(__dirname, '../template.html'));
-        res.render('login', {
+        const userData = await Employee.findByPk(req.session.user_id, {
+            attributes: {exclude: ['password']},
+        });
+        const user = userData.get({plain: true});
+        res.render('question', {
+            ...user,
+            logged_in: true
           });
     } catch (err) {
         res.status(500).json(err);
@@ -14,22 +18,39 @@ router.get('/', async (req, res) => {
 
 });
 
-// '/login' breakpoint
-// router.get('/login', async (req, res) => {
-//     res.sendFile(path.join(__dirname, //login page
-//     ));
-// });
+// '/dashboard' breakpoint
+router.get('/dashboard', withAuth, async (req, res) => {
+    try {
+        const userData = await Employee.findByPk(req.session.user_id, {
+            attributes: {exclude: ['password']},
+        });
+        const user = userData.get({plain: true});
+        res.render('dashboard', {
+            ...user,
+            logged_in: true
+          });
+    } catch (err) {
+        res.status(500).json(err);
+    }
 
-// // '/project' breakpoint
-// route.get('/project',async (req, res) => {
-//     res.sendFile(path.join(__dirname, //project page
-//     ));
-// });
+});
 
-// // '/team' breakpoint
-// route.get('/team',async (req, res) => {
-//     res.sendFile(path.join(__dirname, //team page
-//     ));
-// });
+
+// everything breakpoint
+router.get('*', withAuth, async (req, res) => {
+    try {
+        const userData = await Employee.findByPk(req.session.user_id, {
+            attributes: {exclude: ['password']},
+        });
+        const user = userData.get({plain: true});
+        res.render('homepage', {
+            ...user,
+            logged_in: true
+          });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+
+});
 
 module.exports = router;
