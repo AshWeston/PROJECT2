@@ -44,10 +44,7 @@
             <button id="userButton" class="flex items-center focus:outline-none mr-3">
               <!-- ADD USER LEVEL HERE -->
               <img class="w-8 h-8 rounded-full mr-4" src="/images/user-image.jpg" alt="User Image" />
-              <span class="hidden md:inline-block text-gray-100">Hi, User</span>
-              <svg class="pl-2 h-2 fill-current text-gray-100" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 129 129">
-                <g>
+              <span class="hidden md:inline-block text-gray-500 hover:text-gray-100">Login</span>
                   <path
                     d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z">
                   </path>
@@ -81,22 +78,22 @@
         id="nav-content">
         <ul class="list-reset lg:flex flex-1 items-center px-4 md:px-0">
           <li id="home" class="mr-6 my-2 md:my-0">
-            <a href=""
+            <button
               class="home block py-1 md:py-3 pl-1 align-middle text-blue-400 no-underline hover:text-gray-100 border-b-2 border-blue-400 hover:border-blue-400">
-              <i id="fav-home" class="fas fa-home fa-fw mr-3 text-blue-400"></i><span class="pb-1 md:pb-0 text-sm">Home</span>
-            </a>
+              <i id="fav-home" class="fas fa-home fa-fw mr-3 text-blue-400"></i><span class="span-home pb-1 md:pb-0 text-sm">Home</span>
+            </button>
           </li>
           <li id="dashboard" class="mr-6 my-2 md:my-0">
-            <a href=""
-              class="dashboard block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-pink-400">
+            <button href=""
+              class="dashboard block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-red-400">
               <i id="fav-dashboard" class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">My Dashboard</span>
-            </a>
+            </button>
           </li>
           <li id="question" class="mr-6 my-2 md:my-0">
-            <a href=""
+            <button href=""
               class="question block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-red-400">
               <i id="fav-question" class="fa fa-question fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Ask A Question</span>
-            </a>
+            </button>
           </li>
           {{!-- <li class="mr-6 my-2 md:my-0">
             <a href="#"
