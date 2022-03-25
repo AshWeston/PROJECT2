@@ -46,11 +46,6 @@ function dragItems(tagname) {
   }
 
 
-
-
-
-
-
 const addNoteBtn = document.querySelectorAll('.add-note')
 addNoteBtn.forEach((currentBtn) => {
   currentBtn.addEventListener('click', (event) => {
