@@ -1,35 +1,37 @@
-const { route } = require('express/lib/application');
-
 const router = require('express').Router();
+const req = require('express/lib/request');
+const withAuth = require('../utils/auth');
 
-// '/' breakpoint
-router.get('/', async (req, res) => {
+
+// '/question' breakpoint
+router.get('/question', async (req, res) => {
     try {
-        // res.sendFile(path.join(__dirname, '../template.html'));
-        res.render('login', {
-          });
+        res.render('question');
     } catch (err) {
         res.status(500).json(err);
     }
 
 });
 
-// '/login' breakpoint
-// router.get('/login', async (req, res) => {
-//     res.sendFile(path.join(__dirname, //login page
-//     ));
-// });
+// '/dashboard' breakpoint
+router.get('/dashboard', async (req, res) => {
+    try {
+        res.render('dashboard');
+    } catch (err) {
+        res.status(500).json(err);
+    }
 
-// // '/project' breakpoint
-// route.get('/project',async (req, res) => {
-//     res.sendFile(path.join(__dirname, //project page
-//     ));
-// });
+});
 
-// // '/team' breakpoint
-// route.get('/team',async (req, res) => {
-//     res.sendFile(path.join(__dirname, //team page
-//     ));
-// });
+
+// everything breakpoint
+router.get('*', async (req, res) => {
+    try {
+        res.render('signup');
+    } catch (err) {
+        res.status(500).json(err);
+    }
+
+});
 
 module.exports = router;
