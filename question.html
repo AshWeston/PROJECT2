@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Welcome to Guru!</title>
+    <title>Ask A Question</title>
     <meta name="description" content="description here" />
     <meta name="keywords" content="keywords,here" />
 
@@ -169,8 +169,8 @@
                 href="#"
                 class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-100 border-b-2 border-gray-900 hover:border-red-400"
               >
-                <i class="fa fa-question fa-fw mr-3"></i
-                ><span class="pb-1 md:pb-0 text-sm">Ask A Question</span>
+                <i class="fa fa-question fa-fw mr-3 "></i>
+                <span class="pb-1 md:pb-0 text-sm">Ask A Question</span>
               </a>
             </li>
           </ul>
@@ -179,80 +179,66 @@
     </nav>
 
     <!--Container-->
-    <div class="container mx-auto">{{{body}}}</div>
 
+    <!-- Question Form -->
+
+    <div class="h-screen flex justify-center items-center">
+      <div
+        class="bg-gray-900 border border-gray-800 shadow p-2 rounded-lg w-2/5 px-16 py-16"
+      >
+        <form>
+          <div class="flex font-bold justify-center" style="padding-bottom: 5%">
+            <i class="fa fa-question fa-fw mr-3 text-pink-600" style="font-size: 50px;"></i>
+          </div>
+          <h2 class="text-3xl text-center text-gray-300 mb-4">Ask A Question</h2>
+          <div
+            class="input-div border-b-2 relative grid my-5 py-1 focus:outline-none"
+            style="grid-template-columns: 7% 93%"
+          >
+            <div class="i">
+              <i class="fas text-gray-500"></i>
     
+            </div>
+            <div class="div">
+            
+              <input
+                type="text"
+                class=" form-input absolute w-full h-full py-2 px-3  inset-0 text-black-100 border-b-2 hover:border-pink-400"
+                style="background: white "
+                placeholder="Question Title"
+                name="question-title"
+                id="question-title"
+              />
+            </div>
+          </div>
+          <div
+            class="input-div border-b-2 relative grid my-5 py-1 focus:outline-none"
+            style="grid-template-columns: 7% 93%"
+          >
+            <div class="i">
+              <i class="fas fa-text text-gray-500"></i>
+    
+            </div>
+            <div class="div">
+             
+              <textarea
+              class=" form-input absolute w-full h-full py-2 px-3 inset-0 text-black-100 border-b-2 hover:border-pink-400"
+              style="background: white; height: 8rem" id="content" name = "content"placeholder="Type your question here..."></textarea>
+            </div>
+            
+          </div>
+          <button
+          type="submit"
+          class="w-full py-2 rounded-full bg-pink-600 text-gray-300 focus:outline-none hover:text-gray-100 mt-24"
+        
+        >
+         Create New Question 
+        </button>
+        </form>
+        </div>
+          
+
 
     <!--/container-->
-
-    <footer
-      class="bg-gray-900 border-t border-gray-400 shadow fixed bottom-0 w-full"
-    >
-      <div class="container max-w-md mx-auto flex py-8">
-        <div class="w-full mx-auto flex flex-wrap">
-          <div class="px-8">
-            <h3 class="font-bold font-bold text-gray-100">About</h3>
-            <p class="py-4 text-gray-600 text-sm">
-              Guru is an online collaboration app, designed to allow users to
-              organise and easily keep track of their projects. <br />
-              Climb the Guru ranks and earn points by helping others answer
-              queries!
-            </p>
-            <!-- </div> -->
-          </div>
-        </div>
-
-        <div class="w-full p-3">
-          <!--Table Card: Click to view project-->
-          <div class="bg-gray-900 border border-gray-800 rounded shadow">
-            <div class="border-b border-gray-800 p-3">
-              <h5 class="font-bold uppercase text-gray-600">Guru Ranking</h5>
-            </div>
-            <div class="p-5">
-              <table class="w-full p-5 text-gray-700">
-                <thead>
-                  <tr>
-                    <th class="text-left text-gray-600">Level</th>
-                    <th class="text-left text-gray-600">Points</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr>
-                    <td>
-                      <i class="fas fa-crown text-yellow-400 pr-3"></i>Gold
-                    </td>
-                    <td>100+</td>
-                  </tr>
-                  <tr>
-                    <td><i class="fas fa-star text-blue-400 pr-3"></i>Blue</td>
-                    <td>80</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <i class="fas fa-star text-green-400 pr-3"></i>Green
-                    </td>
-                    <td>60</td>
-                  </tr>
-                  <tr>
-                    <td><i class="fas fa-star text-red-400 pr-3"></i>Red</td>
-                    <td>40</td>
-                  </tr>
-                  <tr>
-                    <td><i class="fas fa-star text-pink-400 pr-3"></i>Pink</td>
-                    <td>20</td>
-                  </tr>
-                  <tr>
-                    <td><i class="fas fa-star text-white-400 pr-3"></i>Grey</td>
-                    <td>0-20</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
   </body>
 </html>
