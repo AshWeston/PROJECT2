@@ -16,6 +16,10 @@ Question.init(
       type: DataTypes.STRING,
     },
 
+    question_title {
+      type: DataTypes.STRING,
+    },
+
     employee_id: {
       type: DataTypes.INTEGER,
       references: {
