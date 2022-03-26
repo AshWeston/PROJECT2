@@ -38,8 +38,8 @@
 <body class="bg-black-alt font-sans leading-normal tracking-normal text-gray-500">
     <div class="max-w-2xl mx-auto" >
       <div class="create-project">
-        <button id="to-question">+ Create project</button>
-        <form class="w-full max-w-xl rounded-lg add-card">
+        <button id="create-project">+ Create project</button>
+        <form class="w-full max-w-xl rounded-lg add-card hidden">
           <div class="flex flex-wrap -mx-3 mb-6">
               <div class="w-full md:w-full px-3 mb-2 mt-2">
                 <label for="name">Project name:</label>
@@ -101,6 +101,9 @@
                     team
                   </th>
                   <th scope="col" class="px-6 py-3">
+                    <span class="sr-only">Kanban</span>
+                  </th>
+                  <th scope="col" class="px-6 py-3">
                     <span class="sr-only">Edit</span>
                   </th>
                 </tr>
@@ -124,7 +127,10 @@
                     $2999
                   </td>
                   <td class="px-6 py-4 text-right">
-                    <button type="button" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
+                    <button type="button" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Kanban</button>
+                  </td>
+                  <td class="px-6 py-4 text-right">
+                    <button type="button" class="font-medium text-blue-600 dark:text-blue-500 hover:underline editBtn">Edit</button>
                   </td>
                 </tr>
                 <tr
@@ -145,43 +151,47 @@
                   $2999
                 </td>
                 <td class="px-6 py-4 text-right">
+                  <button type="button" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Kanban</button>
+                </td>
+                <td class="px-6 py-4 text-right">
                   <button type="button" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
                 </td>
               </tr>
               </tbody>
             </table>
+            <form class="w-full max-w-xl rounded-lg add-card hidden">
+              <div class="flex flex-wrap -mx-3 mb-6">
+                  <div class="w-full md:w-full px-3 mb-2 mt-2">
+                    <label for="name">Project name:</label>
+                    <input class=" rounded border border-gray-400 w-full py-2 px-3 font-medium placeholder-gray-700 focus:outline-none " name="name"  required></input>
+                  </div>
+                  <div class="w-full md:w-full flex items-start md:w-full px-3">
+                    <div class="w-full md:w-full px-3 mb-2 mt-2">
+                      <label for="start">Start date:</label>
+                      <input type="date" min="2018-01-01" class=" rounded border border-gray-400  py-2 px-3 font-medium placeholder-gray-700 focus:outline-none " name="start"  required></input>
+                    </div>
+                    <div class="w-full md:w-full px-3 mb-2 mt-2">
+                      <label for="start">End date:</label>
+                      <input type="date" min="2018-01-01" class=" rounded border border-gray-400  py-2 px-3 font-medium placeholder-gray-700 focus:outline-none " name="start"  required></input>
+                    </div>
+                  </div>
+                  <div class="w-full md:w-full px-3 mb-2 mt-2">
+                    <label for="name">Assigned team:</label>
+                    <input class="form-select" list="list" />
+                      <datalist id="list">
+                        <option value="team 1"></option>
+                        <option value="team 2"></option>
+                      </datalist>
+                  </div>
+                  <div class="w-full md:w-full flex items-start md:w-full px-3">
+                    <button type="submit " class="rounded-full bg-green-600 text-gray-300 focus:outline-none hover:text-gray-100 py-1 p-4 mr-1 ">Update</button>
+                    <button type='button' class="rounded-full bg-green-600 text-gray-300 focus:outline-none hover:text-gray-100 py-1 p-4 mr-1 cancelBtn">Cancel</button>
+                  </div>
+                </div>
+            </form>
           </div>
       </div>
-      <form class="w-full max-w-xl rounded-lg add-card">
-        <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full md:w-full px-3 mb-2 mt-2">
-              <label for="name">Project name:</label>
-              <input class=" rounded border border-gray-400 w-full py-2 px-3 font-medium placeholder-gray-700 focus:outline-none " name="name"  required></input>
-            </div>
-            <div class="w-full md:w-full flex items-start md:w-full px-3">
-              <div class="w-full md:w-full px-3 mb-2 mt-2">
-                <label for="start">Start date:</label>
-                <input type="date" min="2018-01-01" class=" rounded border border-gray-400  py-2 px-3 font-medium placeholder-gray-700 focus:outline-none " name="start"  required></input>
-              </div>
-              <div class="w-full md:w-full px-3 mb-2 mt-2">
-                <label for="start">End date:</label>
-                <input type="date" min="2018-01-01" class=" rounded border border-gray-400  py-2 px-3 font-medium placeholder-gray-700 focus:outline-none " name="start"  required></input>
-              </div>
-            </div>
-            <div class="w-full md:w-full px-3 mb-2 mt-2">
-              <label for="name">Assigned team:</label>
-              <input class="form-select" list="list" />
-                <datalist id="list">
-                  <option value="team 1"></option>
-                  <option value="team 2"></option>
-                </datalist>
-            </div>
-            <div class="w-full md:w-full flex items-start md:w-full px-3">
-              <button type="submit " class="rounded-full bg-green-600 text-gray-300 focus:outline-none hover:text-gray-100 py-1 p-4 mr-1 ">Update</button>
-              <button type='button' class="rounded-full bg-green-600 text-gray-300 focus:outline-none hover:text-gray-100 py-1 p-4 mr-1 cancelBtn">Cancel</button>
-            </div>
-          </div>
-      </form>
+      
     </div>
     
         
