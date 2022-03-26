@@ -1,0 +1,59 @@
+ <!-- Question Form -->
+
+    <div class="h-screen flex justify-center items-center">
+      <div
+        class="bg-gray-900 border border-gray-800 shadow p-2 rounded-lg w-2/5 px-16 py-16"
+      >
+        <form>
+          <div class="flex font-bold justify-center" style="padding-bottom: 5%">
+            <i class="fa fa-question fa-fw mr-3 text-pink-600" style="font-size: 50px;"></i>
+          </div>
+          <h2 class="text-3xl text-center text-gray-300 mb-4">Ask A Question</h2>
+          <div
+            class="input-div border-b-2 relative grid my-5 py-1 focus:outline-none"
+            style="grid-template-columns: 7% 93%"
+          >
+            <div class="i">
+              <i class="fas text-gray-500"></i>
+    
+            </div>
+            <div class="div">
+            
+              <input
+                type="text"
+                class=" form-input absolute w-full h-full py-3 px-3 inset-0 text-black-100 border-b-2 hover:border-pink-400"
+                style="background: white "
+                placeholder="Question Title"
+                name="question-title"
+                id="question-title"
+              />
+            </div>
+          </div>
+          <div
+            class="input-div border-b-2 relative grid my-5 py-1 focus:outline-none"
+            style="grid-template-columns: 7% 93%"
+          >
+            <div class="i">
+              <i class="fas fa-text text-gray-500"></i>
+    
+            </div>
+            <div class="div">
+             
+              <textarea
+              class=" form-input absolute w-full h-full py-3 px-2 inset-0 text-black-100 border-b-2 hover:border-pink-400"
+              style="background: white; height: 7rem" id="content" name = "content"placeholder="Type your question here..."></textarea>
+            </div>
+            
+          </div>
+          <button
+          type="submit"
+          id="createQuestion"
+          class="w-full py-2 rounded-full bg-pink-600 text-gray-300 focus:outline-none hover:text-gray-100 mt-24"
+        
+        >
+         Create New Question 
+        </button>
+        </form>
+        </div>
+
+<script src="/js/question.js"></script>
