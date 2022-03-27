@@ -19,6 +19,33 @@ router.get('/:id',async (req, res) => {
 });
 
 
+router.post('/', async (req, res) => {
+    try {
+      const newProject = await Project.create({
+        ...req.body,
+      });
+  
+      res.status(200).json(newProject);
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
 
-
+router.put('/:id', async(req, res) => {
+  // update project
+  try {
+    const request = req.body.request;
+    console.log(request);
+    const projectData = await Project.update(request, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json(projectData)
+  }
+  catch(err)  {
+      console.log(err);
+      res.status(400).json(err);
+    };
+});
 module.exports = router;

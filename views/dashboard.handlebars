@@ -1,26 +1,26 @@
 <div class="my-24 bg-black-alt font-sans leading-normal tracking-normal text-gray-500">
-  <div class="max-w-2xl mx-auto" >
-        <div class="create-project">
-          <button id="create-project">+ Create project</button>
+  <div class="max-w-2xl mx-auto my-1" >
+        <div class="create-project  my-4">
+          <button id="create-project" class="rounded-full bg-green-600 text-gray-300 focus:outline-none hover:text-gray-100 py-1 p-4 mr-1">+ Create project</button>
           <form id="create-project-form" class="w-full max-w-xl rounded-lg add-card hidden">
             <div class="flex flex-wrap -mx-3 mb-6">
                 <div class="w-full md:w-full px-3 mb-2 mt-2">
                   <label for="name">Project name:</label>
-                  <input class=" rounded border border-gray-400 w-full py-2 px-3 font-medium placeholder-gray-700 focus:outline-none " name="name"  required></input>
+                  <input id="project_name" class=" rounded border border-gray-400 w-full py-2 px-3 font-medium placeholder-gray-700 focus:outline-none " name="name"  required></input>
                 </div>
                 <div class="w-full md:w-full flex items-start md:w-full px-3">
                   <div class="w-full md:w-full px-3 mb-2 mt-2">
                     <label for="start">Start date:</label>
-                    <input type="date" min="2018-01-01" class=" rounded border border-gray-400  py-2 px-3 font-medium placeholder-gray-700 focus:outline-none " name="start"  required></input>
+                    <input id="start_date" type="date" min="2018-01-01" class=" rounded border border-gray-400  py-2 px-3 font-medium placeholder-gray-700 focus:outline-none " name="start"  required></input>
                   </div>
                   <div class="w-full md:w-full px-3 mb-2 mt-2">
                     <label for="start">End date:</label>
-                    <input type="date" min="2018-01-01" class=" rounded border border-gray-400  py-2 px-3 font-medium placeholder-gray-700 focus:outline-none " name="start"  required></input>
+                    <input id="end_date" type="date" min="2018-01-01" class=" rounded border border-gray-400  py-2 px-3 font-medium placeholder-gray-700 focus:outline-none " name="start"  required></input>
                   </div>
                 </div>
                 <div class="w-full md:w-full px-3 mb-2 mt-2">
                   <label for="name">Assigned team:</label>
-                  <input class="form-select" list="list" />
+                  <input id="team" class="form-select" list="list" />
                     <datalist id="list">
                       {{#each teams as |team|}}
                       <option value="{{team.team_name}}"></option>
@@ -28,7 +28,7 @@
                     </datalist>
                 </div>
                 <div class="w-full md:w-full flex items-start md:w-full px-3">
-                  <button type="submit " class="rounded-full bg-green-600 text-gray-300 focus:outline-none hover:text-gray-100 py-1 p-4 mr-1 ">Create</button>
+                  <button type="submit " form="create-project-form" class="rounded-full bg-green-600 text-gray-300 focus:outline-none hover:text-gray-100 py-1 p-4 mr-1 ">Create</button>
                   <button type='button' class="rounded-full bg-green-600 text-gray-300 focus:outline-none hover:text-gray-100 py-1 p-4 mr-1 cancelBtn">Cancel</button>
                 </div>
               </div>
@@ -36,17 +36,17 @@
         </div>
         <div class="create-question">
           <!-- redirect to question page -->
-          <button id="to-question">+ Create question</button>
+          <a id="to-question" href="/questions" class="rounded-full bg-green-600 text-gray-300 focus:outline-none hover:text-gray-100 py-1 p-4 mr-1">+ Create question</a>
         </div>    
     </div>
-  <div class="max-w-2xl mx-auto" >
+  <div class="max-w-4xl mx-auto w-full md:w-full my-5 rounded-md border border-gray-700 p-4" >
         <!-- project list -->
-        <h2>Your project</h2>
-        <div >
+        <h2 class="text-xl mb-4">Your project</h2>
+        <div class="w-full md:w-full">
 
-          <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <div class="w-full md:w-full relative overflow-x-auto shadow-md sm:rounded-lg">
 
-              <table class="w-full text-sm text-left text-gray-400 table">
+              <table class="w-full md:w-full text-sm text-left text-gray-400 table">
                 <thead class="text-xs uppercase bg-gray-700 dark:text-gray-400">
                   <tr>
                     <th scope="col" class="p-4">
@@ -95,39 +95,35 @@
                       <button type="button" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Kanban</button>
                     </td>
                     <td class="px-6 py-4 text-right">
-                      <button type="button" class="font-medium text-blue-600 dark:text-blue-500 hover:underline editBtn">Edit</button>
+                      <button type="button" class="font-medium text-blue-600 dark:text-blue-500 hover:underline editBtn" data-id="{{project.id}}">Edit</button>
                     </td>
                   </tr>
                   {{/each}}
                 </tbody>
               </table>
-              <form class="w-full max-w-xl rounded-lg add-card hidden">
+              <form id="update-project-form" class="w-full max-w-xl rounded-lg add-card hidden">
                 <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full md:w-full px-3 mb-2 mt-2">
-                      <label for="name">Project name:</label>
-                      <input class=" rounded border border-gray-400 w-full py-2 px-3 font-medium placeholder-gray-700 focus:outline-none " name="name"  required></input>
-                    </div>
                     <div class="w-full md:w-full flex items-start md:w-full px-3">
                       <div class="w-full md:w-full px-3 mb-2 mt-2">
                         <label for="start">Start date:</label>
-                        <input type="date" min="2018-01-01" class=" rounded border border-gray-400  py-2 px-3 font-medium placeholder-gray-700 focus:outline-none " name="start"  required></input>
+                        <input type="date" min="2018-01-01" id="start_date" class=" rounded border border-gray-400  py-2 px-3 font-medium placeholder-gray-700 focus:outline-none " name="start" ></input>
                       </div>
                       <div class="w-full md:w-full px-3 mb-2 mt-2">
                         <label for="start">End date:</label>
-                        <input type="date" min="2018-01-01" class=" rounded border border-gray-400  py-2 px-3 font-medium placeholder-gray-700 focus:outline-none " name="start"  required></input>
+                        <input type="date" min="2018-01-01" id="end_date" class=" rounded border border-gray-400  py-2 px-3 font-medium placeholder-gray-700 focus:outline-none " name="start" ></input>
                       </div>
                     </div>
                     <div class="w-full md:w-full px-3 mb-2 mt-2">
                       <label for="name">Assigned team:</label>
-                      <input class="form-select" list="list" />
+                      <input class="form-select" id="team" list="list" />
                         <datalist id="list">
                           <option value="team 1"></option>
                           <option value="team 2"></option>
                         </datalist>
                     </div>
                     <div class="w-full md:w-full flex items-start md:w-full px-3">
-                      <button type="submit " class="rounded-full bg-green-600 text-gray-300 focus:outline-none hover:text-gray-100 py-1 p-4 mr-1 ">Update</button>
-                      <button type='button' class="rounded-full bg-green-600 text-gray-300 focus:outline-none hover:text-gray-100 py-1 p-4 mr-1 cancelEditBtn">Cancel</button>
+                      <button type="submit " form="update-project-form" class="rounded-full bg-green-600 text-gray-300 focus:outline-none hover:text-gray-100 py-1 p-4 mr-1 ">Update</button>
+                      <button type='button'  class="rounded-full bg-green-600 text-gray-300 focus:outline-none hover:text-gray-100 py-1 p-4 mr-1 cancelEditBtn">Cancel</button>
                     </div>
                   </div>
               </form>
