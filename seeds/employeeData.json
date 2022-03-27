@@ -6,6 +6,6 @@
         "password": "12345678",
         "role_id": null,
         "is_manager": true,
-        "project_id": null
+        "team_id": 1
     }
 ]

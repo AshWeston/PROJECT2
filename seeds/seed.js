@@ -11,14 +11,13 @@ const teamData = require('./teamData.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true })
-
     await Comment.bulkCreate(commentData);
+    await Team.bulkCreate(teamData);
     await Employee.bulkCreate(employeeData);
     await Project.bulkCreate(projectData);
     await Milestone.bulkCreate(milestoneData);
     await Question.bulkCreate(questionData);
     await Role.bulkCreate(roleData);
-    await Team.bulkCreate(teamData);
 
     process.exit(0);
 }

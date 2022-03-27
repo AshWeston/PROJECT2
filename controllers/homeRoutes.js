@@ -1,4 +1,5 @@
 const { route } = require('express/lib/application');
+const { Employee, Project, Team } = require('../models');
 
 const router = require('express').Router();
 
@@ -20,14 +21,26 @@ router.get('/', async (req, res) => {
 //     ));
 // });
 
-// // '/project' breakpoint
-// route.get('/project',async (req, res) => {
-//     res.sendFile(path.join(__dirname, //project page
-//     ));
-// });
+// '/dashboard' breakpoint
+router.get('/dashboard/:id',async (req, res) => {
+    try {
+        const employeeData = await Employee.findByPk(req.params.id);
+        const employeeTeam = await Team.findByPk(employeeData.team_id, {
+            include:[{model:Project}]
+        });
+        const teamData = await Team.findAll();
+        const employee = employeeTeam.get({plain:true});
+        const teams = teamData.map((team) => team.get({ plain: true }));
+        console.log(employee,teams);
+        res.render('dashboard',{employee,teams});
+        // res.status(200).json({employeeTeam,teamData});
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 // // '/team' breakpoint
-// route.get('/team',async (req, res) => {
+// router.get('/team',async (req, res) => {
 //     res.sendFile(path.join(__dirname, //team page
 //     ));
 // });

@@ -6,6 +6,8 @@ const Question = require('./Question');
 const Role = require('./Role');
 const Team = require('./Team')
 
-
+Team.hasMany(Project);
+Team.hasMany(Employee);
+Employee.belongsTo(Team)
 
 module.exports = { Employee, Milestone,Project,Question,Role,Team, Comment };
