@@ -42,12 +42,21 @@
       <a href="/answer" class="text-xs text-gray-300 hover:text-pink-400 float-right mb-4">Or Click Here To View
         Questions/Answers</a>
     </form>
-    <div class="container mx-auto mt-6">
+    <div id="question" class="container mx-auto mt-6">
       {{#each question as |q|}}
-      <div class="mb-5 ml-12 w-full rounded overflow-hidden shadow-lg flex justify-between">
+      <div class="mb-5 ml-12 w-full rounded overflow-hidden shadow-lg flex justify-between border-b-2">
+        
         <div class="px-6 py-4">
-          <p class="font-bold text-xl mb-2">{{q.question_title}}</p>
-          <p class="text-gray-700 text-base">{{q.question_contents}}</p>
+          <p class="font-bold text-xl mb-2 text-gray-300 ">{{q.question_title}}</p>
+          <p class="text-gray-500 text-base">{{q.question_contents}}</p>
+          <button type="submit" id="deleteButton"
+        class="bg-pink-600 hover:bg-gray-100 text-gray-100 py-2 px-4 rounded shadow mt-12 hover:text-pink-600 hover:border-pink-400">
+        Delete
+      </button>
+          <button type="submit" id="answerButton"
+        class="bg-pink-600 hover:bg-gray-100 text-gray-100 py-2 px-4 rounded shadow mt-12 hover:text-pink-600 hover:border-pink-400">
+        Add Answer
+      </button>
         </div>
       </div>
       {{/each}}
