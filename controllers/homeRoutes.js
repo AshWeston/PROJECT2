@@ -1,26 +1,26 @@
 const router = require("express").Router();
+const { Employee } = require("../models");
 const withAuth = require("../utils/auth");
 
 // '/question' breakpoint
-router.get("/question", withAuth, async (req, res) => {
+router.get("/question", async (req, res) => {
   try {
     // the user data 
-    const userData = await Employee.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
+    const userData = await Employee.findOne({ 
+      where: {id: req.session.user_id },
+      // attributes: { exclude: ['password'] }
     });
 
-    // the question data (need fixes maybe)
-    const questionData = await Question.findByPk(req.session.user_id, {
-      attributes: {question},
-    });
+    // //the question data (need fixes maybe)
+    // const questionData = await Question.findAll();
 
 
     const user = userData.get({ plain: true });
-    const question = questionData.get({ plain: true });
+    // const question = questionData.map((question) => question.get({ plain: true }));
 
     res.render("question", {
       ...user,
-      ...question,
+      // ...question,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -31,21 +31,21 @@ router.get("/question", withAuth, async (req, res) => {
 // '/dashboard' breakpoint
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
-    const userData = await Employee.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
+    const userData = await Employee.findOne({ 
+      where: {id: req.session.user_id },
+      // attributes: { exclude: ['password'] }
     });
 
     // the question data (need fixes maybe)
-    const projectData = await Project.findByPk(req.session.user_id, {
-      attributes: {project},
-    });
+    // const projectData = Project.findAll();
 
 
     const user = userData.get({ plain: true });
-    const project = projectData.get({ plain: true });
+    // const project = projectData.map((project) => project.get({ plain: true }));
+
     res.render("dashboard", {
       ...user,
-      ...project,
+      // ...project,
       logged_in: req.session.logged_in
     });
   } catch (err) {
