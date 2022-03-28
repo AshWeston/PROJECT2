@@ -27,7 +27,7 @@ const createProjectFormHandler = async (event) => {
     });
     if (response.ok) {
       // If successful, reload current page
-      document.location.replace('/dashboard/1');
+      location.reload();
     } else {
       alert('Fail to create project');
     }
@@ -73,7 +73,7 @@ const EditFormHandler = async(event) => {
   });
   if (response.ok) {
     // If successful, reload current page
-    document.location.replace('/dashboard/1');
+    location.reload();
   } else {
     alert('Fail to create project');
   }

@@ -31,21 +31,17 @@ router.get("/question", async (req, res) => {
 // '/dashboard' breakpoint
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
-    const userData = await Employee.findOne({ 
-      where: {id: req.session.user_id },
-      // attributes: { exclude: ['password'] }
+    const employeeData = await Employee.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Project }],
     });
-
-    // the question data (need fixes maybe)
-    // const projectData = Project.findAll();
-
-
-    const user = userData.get({ plain: true });
-    // const project = projectData.map((project) => project.get({ plain: true }));
-
-    res.render("dashboard", {
-      ...user,
-      // ...project,
+    const teamData = await Team.findAll();
+    const employee = employeeData.get({plain:true});
+    const teams = teamData.map((team) => team.get({ plain: true }));
+    console.log(employee,teams);
+    res.render('dashboard',{
+      employee,
+      teams,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -94,18 +90,17 @@ router.get("/", async (req, res) => {
 });
 
 // '/dashboard' breakpoint
-router.get('/dashboard/:id',async (req, res) => {
+router.get('/dashboard',async (req, res) => {
     try {
-        const employeeData = await Employee.findByPk(req.params.id);
-        const employeeTeam = await Team.findByPk(employeeData.team_id, {
-            include:[{model:Project}]
+        const employeeData = await Employee.findByPk(req.session.user_id, {
+          attributes: { exclude: ['password'] },
+          include: [{ model: Project }],
         });
         const teamData = await Team.findAll();
-        const employee = employeeTeam.get({plain:true});
+        const employee = employeeData.get({plain:true});
         const teams = teamData.map((team) => team.get({ plain: true }));
         console.log(employee,teams);
         res.render('dashboard',{employee,teams});
-        // res.status(200).json({employeeTeam,teamData});
     } catch (err) {
         res.status(500).json(err);
     }
