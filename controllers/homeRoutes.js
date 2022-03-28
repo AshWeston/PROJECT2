@@ -2,9 +2,20 @@ const router = require("express").Router();
 const { Employee, Question } = require("../models");
 const withAuth = require("../utils/auth");
 
+// //middleware checking login status
+// router.use(withAuth);
+
 // '/question' breakpoint
 router.get("/question", withAuth, async (req, res) => {
   try {
+    // the user data 
+    const userData = await Employee.findOne({ 
+      where: {id: req.session.user_id },
+      attributes: { exclude: ['password'] }
+    });
+
+    // //the question data (need fixes maybe)
+    // const questionData = await Question.findAll();
     const questionData = await Question.findAll();
 
     const question = questionData.map(que => que.get({ plain: true}));
@@ -18,33 +29,9 @@ router.get("/question", withAuth, async (req, res) => {
   }
 });
 
-// '/dashboard' breakpoint
-router.get("/dashboard", withAuth, async (req, res) => {
-  try {
-    const userData = await Employee.findOne({ 
-      where: {id: req.session.user_id },
-      // attributes: { exclude: ['password'] }
-    });
-
-    // the question data (need fixes maybe)
-    // const projectData = Project.findAll();
-
-
-    const user = userData.get({ plain: true });
-    // const project = projectData.map((project) => project.get({ plain: true }));
-
-    res.render("dashboard", {
-      ...user,
-      // ...project,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 // '/answer' breakpoint
-router.get("/answer", withAuth, async (req, res) => {
+router.get("/answer", async (req, res) => {
   try {
     res.render("answer", {
       logged_in: req.session.logged_in
