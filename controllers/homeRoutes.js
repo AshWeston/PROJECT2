@@ -1,29 +1,19 @@
 const router = require("express").Router();
-const { Employee } = require("../models");
+const { Employee, Question } = require("../models");
 const withAuth = require("../utils/auth");
 
 // '/question' breakpoint
-router.get("/question", async (req, res) => {
+router.get("/question", withAuth, async (req, res) => {
   try {
-    // the user data 
-    const userData = await Employee.findOne({ 
-      where: {id: req.session.user_id },
-      // attributes: { exclude: ['password'] }
-    });
+    const questionData = await Question.findAll();
 
-    // //the question data (need fixes maybe)
-    // const questionData = await Question.findAll();
-
-
-    const user = userData.get({ plain: true });
-    // const question = questionData.map((question) => question.get({ plain: true }));
-
-    res.render("question", {
-      ...user,
-      // ...question,
+    const question = questionData.map(que => que.get({ plain: true}));
+    res.render('question', {
+      question,
+      employee_id: req.session.user_id,
       logged_in: req.session.logged_in
     });
-  } catch (err) {
+  } catch(err) {
     res.status(500).json(err);
   }
 });

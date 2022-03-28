@@ -1,17 +1,12 @@
-console.log("TEST");
-
 const router = require("express").Router();
 const { Question } = require("../../models");
 const withAuth = require("../../utils/auth"); // only authenticated users can post questions
 
-router.post("/question", withAuth, async (req, res) => {
-  console.log("-------------------");
-  console.log(req);
-  console.log(req.session.employee_id);
+router.post("/question", async (req, res) => {
   try {
     const newQuestion = await Question.create({
       ...req.body,
-      employee_id: req.session.user_id,
+      employee_id: req.session.user_id
     });
 
     res.status(200).json(newQuestion);
