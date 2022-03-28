@@ -1,4 +1,4 @@
-[
+
     {
         "first_name": "John",
         "last_name": "Smith",
@@ -8,4 +8,3 @@
         "is_manager": true,
         "project_id": null
     }
-]
