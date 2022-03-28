@@ -1,6 +1,6 @@
-const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcrypt");
+const sequelize = require("../config/connection");
 
 class Project extends Model {
   checkPassword(loginPw) {
@@ -15,37 +15,37 @@ Project.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
-        },
+    },
     project_name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
-        },
+      unique: true,
+    },
 
     start_date: {
-        type: DataTypes.DATEONLY,
-        allowNull: false,
-        },
-    
+      type: DataTypes.DATEONLY,
+      allowNull: false,
+    },
+
     end_date: {
-        type: DataTypes.DATEONLY,
-        allowNull: false,
-        },
+      type: DataTypes.DATEONLY,
+      allowNull: false,
+    },
 
     team_id: {
-        type: DataTypes.INTEGER,
-        references: {
-        model: 'team',
-        key: 'id',
-            },
-        }
+      type: DataTypes.INTEGER,
+      references: {
+        model: "team",
+        key: "id",
+      },
+    },
   },
-  { 
+  {
     sequelize,
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: "project",
   }
 );
 
