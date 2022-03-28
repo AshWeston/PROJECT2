@@ -2,14 +2,14 @@ const questionHandler = async function (event) {
   event.preventDefault();
   const questionTitle = document.querySelector("#question-title");
   const questionContent = document.querySelector("#content");
-  
+
   if (questionTitle && questionContent) {
     console.log(questionTitle.value, questionContent.value);
     const response = await fetch(`/api/question`, {
       method: "POST",
       body: JSON.stringify({
         question_contents: questionContent.value,
-        question_title: questionTitle.value, 
+        question_title: questionTitle.value,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -17,7 +17,13 @@ const questionHandler = async function (event) {
     });
 
     if (response.ok) {
-      document.location.replace("/answer");
+      response.json().then((data) => {
+        data.map((question) => {});
+        console.log(questionTitle.value);
+        console.log(questionContent.value);
+        // need to dynamicaly create data to individual html elements
+        debugger;
+      });
     } else {
       alert("Failed to create question");
     }
