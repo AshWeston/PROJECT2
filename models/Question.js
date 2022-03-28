@@ -16,7 +16,7 @@ Question.init(
       type: DataTypes.STRING,
     },
 
-    question_title {
+    question_title: {
       type: DataTypes.STRING,
     },
 

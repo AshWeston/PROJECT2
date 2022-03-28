@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Question } = require("../../models");
-// const withAuth = require('../../utils/auth'); only authenticated users can post questions
+const withAuth = require('../../utils/auth'); // only authenticated users can post questions
 
 router.post("/", withAuth, async (req, res) => {
   try {
