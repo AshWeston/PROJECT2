@@ -1,10 +1,5 @@
 const router = require("express").Router();
-<<<<<<< HEAD
-const req = require("express/lib/request");
-const { Question } = require("../models/");
-=======
 const { Employee, Question } = require("../models");
->>>>>>> 966a04ede7299b385d0a50eef38d2b4039c3a625
 const withAuth = require("../utils/auth");
 
 // //middleware checking login status
@@ -13,26 +8,12 @@ const withAuth = require("../utils/auth");
 // '/question' breakpoint
 router.get("/question", withAuth, async (req, res) => {
   try {
-<<<<<<< HEAD
-    
-    res.render("question", {
-      // question,
-      logged_in: req.session.logged_in,
-=======
     // the user data 
     const userData = await Employee.findOne({ 
       where: {id: req.session.user_id },
       attributes: { exclude: ['password'] }
->>>>>>> 966a04ede7299b385d0a50eef38d2b4039c3a625
     });
 
-<<<<<<< HEAD
-// '/dashboard' breakpoint
-router.get("/dashboard", withAuth, async (req, res) => {
-  try {
-    res.render("dashboard", {
-      logged_in: req.session.logged_in,
-=======
     // //the question data (need fixes maybe)
     // const questionData = await Question.findAll();
     const questionData = await Question.findAll();
@@ -42,7 +23,6 @@ router.get("/dashboard", withAuth, async (req, res) => {
       question,
       employee_id: req.session.user_id,
       logged_in: req.session.logged_in
->>>>>>> 966a04ede7299b385d0a50eef38d2b4039c3a625
     });
   } catch(err) {
     res.status(500).json(err);
