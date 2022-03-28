@@ -2,6 +2,7 @@
 # Guru
 
 ## Table of Content: 
+* [Repository link](#repository-link)
 * [Deploy link](#Deploy-link)
 * [Description](#Description)
 * [Installation](#Installation)
@@ -11,13 +12,21 @@
 * [Screenshot](#Screenshot)
 * [Video Demo](#Video-demo)
 
+## Repository Link
+https://github.com/AshWeston/PROJECT2
+
 ## Deploy Link
-https://github.com/
+https://guru-heroku-deploy.herokuapp.com/
 
 ## Description 
 Guru is a PMS (Project Management System) application design for digital team collaboration.
 
+***This guide is for self-deployed instance of Guru.*** 
 
+***If you want to go back to a already deployed version using Heroku, [Click here](./README.md) redirect to the Heroku-deployed guide***
+<br>
+
+---
 ## Installation
 ### This application requires node.js and mysql
 **MySQL will be used as the sql management system also known as dialect for the SQL query. Please install node.js before using this application**
@@ -63,15 +72,15 @@ SOURCE db/schema.sql;
 * You can rename the database name however you like by changing the 'pms_db' field in `schema.sql` and `.env` file
 
 ---
-### End goal of MySQL Initialization
+**End goal of MySQL Initialization**
 
 * `the code you require to type is in orange branket` (You can restart at anypoint if you have done a mistake)
-<!-- ![DataBase-Initialization](photo) -->
+![DataBase-Initialization](./demo/db-init.png)
 
 <br>
 <br>
 
-**.env file Initialization**
+### .env file Initialization
 
 ```
 The second initialization is .env, .env is used to store your user credential and used to connect to the database by javascript so it is important to do so
@@ -88,19 +97,19 @@ The second initialization is .env, .env is used to store your user credential an
 * create a text file, Copy .env.EXAMPLE and save it new as a .env file
 * **.env is the extension name of the file, if the text editor ask you about the extension of the file, leave it or `choose any file type in Notepad`**
 ---
-### End goal of .env Initialization
+**End goal of .env Initialization**
 
-![env-Initialization](./env-init.png)
+![env-Initialization](./demo/env-init.png)
 ---
 ---
 
-**seeds file Initialization**
+### seeds file Initialization
 
 If you want to use sample data, type **node seeds/seed.js** as you are initializing the database `or start from scratch`
 
-### End goal of .seeds Initialization
+**End goal of .seeds Initialization**
 * `the code you require to type is in orange branket`
-![Seeds-Initialization](./seed-init.png)
+![Seeds-Initialization](./demo/seed-init.png)
 ---
 
 **Initialization is done! You do not have to repeat the steps above unless you are re-deploying or changing user**
@@ -138,10 +147,16 @@ to run the code.
 ```
 
 ## Third party Javascript package used
-[Inquirer](https://github.com/SBoudrias/Inquirer.js) <br>
-[Console Table](https://github.com/bahmutov/console.table) <br>
+[Bcrypt](https://github.com/kelektiv/node.bcrypt.js) <br>
+[Connect Session Sequelize](https://github.com/mweibel/connect-session-sequelize) <br>
 [Dotenv](https://github.com/motdotla/dotenv) <br>
+[Express](https://github.com/expressjs/express) <br>
+[Express Handlebars](https://github.com/express-handlebars/express-handlebarss) <br>
 [MySQL2](https://github.com/sidorares/node-mysql2) <br>
+[Nodemon](https://github.com/remy/nodemon.git) <br>
+[Sequelize](https://github.com/sequelize/sequelize) <br>
+
+
 
 
 ## Screenshot
