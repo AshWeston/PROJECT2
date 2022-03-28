@@ -1,8 +1,8 @@
 // Top right hand menu functionality
 const logoutBtn = document.getElementById("logout");
-// const homeBtn = document.getElementById("home"); no home ID.
-// const dashboardBtn = document.getElementById("dashboard");
-// const questionBtn = document.getElementById("question");
+const homeBtn = document.getElementById("home");
+const dashboardBtn = document.getElementById("dashboard");
+const questionBtn = document.getElementById("question");
 
 const homeFav = document.getElementById("fav-home");
 const dashboardFav = document.getElementById("fav-dashboard");
@@ -56,10 +56,8 @@ const question = () => {
   homeA.classList.replace("hover:border-blue-400", "hover:border-red-400");
 };
 
-// CHECK WITH ALEX/////////
+homeBtn.addEventListener("click", home);
 
-// homeBtn.addEventListener('click', home) - no home ID.
+dashboardBtn.addEventListener("click", dashboard);
 
-// dashboardBtn.addEventListener("click", dashboard);
-
-// questionBtn.addEventListener("click", question);
+questionBtn.addEventListener("click", question);
