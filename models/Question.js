@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Question extends Model {}
 
@@ -12,6 +12,10 @@ Question.init(
       autoIncrement: true,
     },
 
+    question_title: {
+      type: DataTypes.STRING,
+    },
+
     question_contents: {
       type: DataTypes.STRING,
     },
@@ -19,8 +23,8 @@ Question.init(
     employee_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'employee',
-        key: 'id',
+        model: "employee",
+        key: "id",
       },
     },
   },
@@ -29,7 +33,7 @@ Question.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'question',
+    modelName: "question",
   }
 );
 

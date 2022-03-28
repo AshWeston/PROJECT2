@@ -1,9 +1,13 @@
-const router = require('express').Router();
-// const userRoutes = require('./userRoute');
+module.exports = router;
+const router = require("express").Router();
+
+const userRoutes = require("./userRoutes");
+const questionRoutes = require("./questionRoutes");
 const projectRoute= require('./projectRoute');
 const teamRoutes = require('./teamRoute')
-// '/api/users' breakpoint
-// router.use('/users', userRoutes);
+
+router.use("/users", userRoutes);
+router.use("/", questionRoutes);
 
 // '/api/projects' breakpoint
 router.use('/projects', projectRoute);
@@ -11,3 +15,5 @@ router.use('/projects', projectRoute);
 router.use('/teams', teamRoutes);
 
 module.exports = router;
+
+

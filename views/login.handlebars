@@ -4,9 +4,9 @@
   <div
     class="bg-gray-900 border border-gray-800 shadow p-2 rounded-lg w-2/5 px-16 py-16"
   >
-    <form>
+    <form id="login-form">
       <div class="flex font-bold justify-center">
-        <img class="h-20 w-20" src="/Users/chaz/Bootcamp/week15/PROJECT2/images/user-image.jpg"/>
+        <img class="h-20 w-20" src="/images/user-image.jpg" alt="User Image"/>
       </div>
       <h2 class="text-3xl text-center text-gray-500 mb-4">Login To Your Account</h2>
       <div
@@ -21,8 +21,8 @@
             type="text"
             class="absolute w-full h-full py-2 px-3 outline-none inset-0 text-gray-100 border-b-2 border-gray-900 hover:border-green-400"
             style="background: none "
-            placeholder="    Your Email"
-            id="email"
+            placeholder="    Username"
+            id="username-login"
           />
         </div>
       </div>
@@ -39,13 +39,13 @@
             class="absolute w-full h-full py-2 px-3 outline-none inset-0 text-gray-100 border-b-2 border-gray-900 hover:border-green-400"
             style="background: none"
             placeholder="    Password"
-            id="password"
+            id="password-login"
           />
         </div>
       </div>
 
       <a
-        href="#"
+        href="/signup"
         class="text-xs text-green-400 hover:text-green-500 float-right mb-4"
       >New to Guru? Sign Up Now</a>
       <button
@@ -57,3 +57,4 @@
     </form>
   </div>
 </div>
+<script src="./js/login.js"></script>
