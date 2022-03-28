@@ -24,6 +24,17 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+// '/answer' breakpoint
+router.get("/answer", withAuth, async (req, res) => {
+  try {
+    res.render("answer", {
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // everything breakpoint
 router.get("/signup", async (req, res) => {
   try {
