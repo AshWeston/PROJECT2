@@ -18,14 +18,12 @@ Employee.init(
         },
     first_name: {
       type: DataTypes.STRING,
-      allowNull: true,
-      unique: true
+      allowNull: true
         },
 
     last_name: {
         type: DataTypes.STRING,
-        allowNull: false,
-        
+        allowNull: false
         },
     account_name: {
         type: DataTypes.STRING,
