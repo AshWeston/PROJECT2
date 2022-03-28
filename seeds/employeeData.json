@@ -11,7 +11,7 @@
     {
         "first_name": "John",
         "last_name": "Cena",
-        "account_name": "Johny",
+        "account_name": "peacemaker",
         "password": "12345678",
         "role_id": null,
         "is_manager": true,
