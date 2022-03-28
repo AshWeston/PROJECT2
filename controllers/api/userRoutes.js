@@ -44,6 +44,7 @@ router.post('/signup', async (req, res) => {
             ...req.body,
         });
         res.status(200).json(newEmployee);
+        res.redirect('/login');
     } catch (err) {
         res.status(500).json(err);
     }

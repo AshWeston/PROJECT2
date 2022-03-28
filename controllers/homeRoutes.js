@@ -1,11 +1,26 @@
 const router = require("express").Router();
-const req = require("express/lib/request");
 const withAuth = require("../utils/auth");
 
 // '/question' breakpoint
 router.get("/question", withAuth, async (req, res) => {
   try {
+    // the user data 
+    const userData = await Employee.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+    });
+
+    // the question data (need fixes maybe)
+    const questionData = await Question.findByPk(req.session.user_id, {
+      attributes: {question},
+    });
+
+
+    const user = userData.get({ plain: true });
+    const question = questionData.get({ plain: true });
+
     res.render("question", {
+      ...user,
+      ...question,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -16,7 +31,21 @@ router.get("/question", withAuth, async (req, res) => {
 // '/dashboard' breakpoint
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
+    const userData = await Employee.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+    });
+
+    // the question data (need fixes maybe)
+    const projectData = await Project.findByPk(req.session.user_id, {
+      attributes: {project},
+    });
+
+
+    const user = userData.get({ plain: true });
+    const project = projectData.get({ plain: true });
     res.render("dashboard", {
+      ...user,
+      ...project,
       logged_in: req.session.logged_in
     });
   } catch (err) {
