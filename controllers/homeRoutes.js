@@ -3,27 +3,51 @@ const req = require("express/lib/request");
 const withAuth = require("../utils/auth");
 
 // '/question' breakpoint
-router.get("/question", async (req, res) => {
+router.get("/question", withAuth, async (req, res) => {
   try {
-    res.render("question");
+    res.render("question", {
+      logged_in: req.session.logged_in
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 // '/dashboard' breakpoint
-router.get("/dashboard", async (req, res) => {
+router.get("/dashboard", withAuth, async (req, res) => {
   try {
-    res.render("dashboard");
+    res.render("dashboard", {
+      logged_in: req.session.logged_in
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 // everything breakpoint
-router.get("*", async (req, res) => {
+router.get("/signup", async (req, res) => {
   try {
     res.render("signup");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+// ADDED
+router.get('/login', (req, res) => {
+  // If session.logged_in = true then redirect to "/"
+  if(req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+  // else it will load the login handlebar
+  res.render('login');
+});
+// ADDED
+router.get("/", async (req, res) => {
+  try {
+    res.render("home", {
+      logged_in: req.session.logged_in
+    });
   } catch (err) {
     res.status(500).json(err);
   }

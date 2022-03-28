@@ -4,7 +4,7 @@
   <div
     class="bg-gray-900 border border-gray-800 shadow p-2 rounded-lg w-2/5 px-16 py-16"
   >
-    <form>
+    <form id="signup-form">
       <div class="flex font-bold justify-center">
         <img class="h-20 w-20" src="images/user-image.jpg" />
       </div>
@@ -59,8 +59,8 @@
             type="text"
             class="absolute w-full h-full py-2 px-3 outline-none inset-0 text-gray-100 border-b-2 border-gray-900 hover:border-green-400"
             style="background: none "
-            placeholder="    Your Email"
-            id="email"
+            placeholder="    Username"
+            id="username"
           />
         </div>
       </div>
@@ -77,14 +77,14 @@
             type="password"
             class="absolute w-full h-full py-2 px-3 outline-none inset-0 text-gray-100 border-b-2 border-gray-900 hover:border-green-400"
             style="background: none"
-            placeholder="   Choose Password"
+            placeholder="   Password"
             id="password"
           />
         </div>
       </div>
 
       <a
-        href="#"
+        href="/login"
         class="text-xs text-green-400 hover:text-green-500 float-right mb-4"
       >Already a Member? Log In Here</a>
       <button
@@ -96,3 +96,4 @@
     </form>
   </div>
 </div>
+<script src="/js/signup.js"></script>
