@@ -11,7 +11,7 @@ const signupHnadler = async () => {
             headers: { "Content-Type": "application/json"}
         });
     if(response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/login');
     } else {
         alert("Failed to signup");
     }

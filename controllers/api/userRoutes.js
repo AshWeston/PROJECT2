@@ -12,7 +12,7 @@ router.post('/login', async (req, res) => {
             return;
         }
         // CHECK IF PASSWORD IS VALID
-        const validPassword = await userData.checkPassword(req.body.password);
+        const validPassword = userData.checkPassword(req.body.password);
         if (!validPassword) {
             res.status(400).json({ message: 'Incorrect email or password, please try again' });
             return;
@@ -40,11 +40,10 @@ router.post('/logout', (req, res) => {
 });
 router.post('/signup', async (req, res) => {
     try {
-        const newEmployee = Employee.create({
+        Employee.create({
             ...req.body,
         });
-        res.status(200).json(newEmployee);
-        res.redirect('/login');
+        res.status(200).json();
     } catch (err) {
         res.status(500).json(err);
     }
