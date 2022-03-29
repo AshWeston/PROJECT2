@@ -23,13 +23,12 @@ router.post("/question", withAuth, async (req, res) => {
   }
 });
 
-router.delete("/question", withAuth, async (req, res) => {
+router.delete("/question/:id", async (req, res) => {
   try {
     const deleteQuestion = await Question.destroy({
       where: {
-        ...req.body,
-        employee_id: req.session.user_id,
-      },
+        id: req.params.id
+      }
     });
 
     res.status(200).json(deleteQuestion);
