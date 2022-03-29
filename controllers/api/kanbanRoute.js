@@ -38,19 +38,19 @@ router.put('/:id', async(req, res) => {
 });
 
 
-router.get("/projects/:id", async (req, res) => {
-  try {
-    const kanbanData = await Kanban.findAll({
-      where: {
-        project_id: req.params.id
-      },
-      include:[{
-        model:Employee, attributes: { exclude: ['password'] },
-      }]
-    });;
-    res.json(kanbanData)
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// router.get("/projects/:id", async (req, res) => {
+//   try {
+//     const kanbanData = await Kanban.findAll({
+//       where: {
+//         project_id: req.params.id
+//       },
+//       include:[{
+//         model:Employee, attributes: { exclude: ['password'] },
+//       }]
+//     });;
+//     res.json(kanbanData)
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 module.exports = router;
