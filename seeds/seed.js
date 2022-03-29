@@ -1,7 +1,7 @@
 const sequelize = require('../config/connection');
-const { Comment, Employee, Milestone, Project, Question, Role, Team, Kanban } = require('../models');
+const { Answer, Employee, Milestone, Project, Question, Role, Team, Kanban } = require('../models');
 
-const commentData = require('./commentData.json');
+const answerData = require('./answerData.json');
 const employeeData = require('./employeeData.json');
 const milestoneData = require('./milestoneData.json');
 const projectData = require('./projectData.json');
@@ -12,7 +12,7 @@ const kanbanData = require('./kabanData.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true })
-    await Comment.bulkCreate(commentData);
+    await Answer.bulkCreate(answerData);
     await Team.bulkCreate(teamData);
     await Employee.bulkCreate(employeeData);
     await Project.bulkCreate(projectData);
