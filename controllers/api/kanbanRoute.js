@@ -21,11 +21,14 @@ router.put('/:id', async(req, res) => {
   // update kanban card
   try {
     const request = req.body.request;
-    const kanbanData = await Kanban.update(request, {
+    const kanbanData = await Kanban.update(
+      {column: request}, 
+      {
       where: {
         id: req.params.id,
       },
     });
+    console.log(request);
     res.json(kanbanData)
   }
   catch(err)  {
