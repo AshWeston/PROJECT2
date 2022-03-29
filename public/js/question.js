@@ -35,7 +35,8 @@ const deleteQuestionHandler = async (event) => {
       document.location.reload();
   } 
 }
-document
-  .querySelector(".delete-btn")
-  .addEventListener('click', deleteQuestionHandler);
+const deleteBtn = document.querySelectorAll(".delete-btn")
+  deleteBtn.forEach((currentBtn) => {
+    currentBtn.addEventListener('click', deleteQuestionHandler);
+    });
 
