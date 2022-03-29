@@ -7,8 +7,7 @@
   - [Deploy Link](#deploy-link)
   - [Description](#description)
   - [User Guide](#user-guide)
-  - [ScreenshotV](#screenshotv)
-<!-- * [Video Demo](#Video-demo) -->
+  - [ScreenshotV](#screenshot)
 
 ## Deploy Link
 
@@ -50,7 +49,3 @@ Guru is a PMS (Project Management System) application design for digital team co
 **Question page** ![question](./demo/question.png) <br> <br>
 
 **Answer page** ![answer](./demo/answer.png) <br> <br>
-
-<!-- ## Video Demo -->
-
-<!-- [![Video demo](./commencing.png)] -->
