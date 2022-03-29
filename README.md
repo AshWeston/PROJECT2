@@ -2,10 +2,12 @@
 
 ## Table of Content:
 
-- [Deploy link](#Deploy-link)
-- [Description](#Description)
-- [User Guide](#User-Guide)
-- [Screenshot](#Screenshot)
+- [Guru](#guru)
+  - [Table of Content:](#table-of-content)
+  - [Deploy Link](#deploy-link)
+  - [Description](#description)
+  - [User Guide](#user-guide)
+  - [ScreenshotV](#screenshotv)
 <!-- * [Video Demo](#Video-demo) -->
 
 ## Deploy Link
@@ -36,7 +38,7 @@ Guru is a PMS (Project Management System) application design for digital team co
 '/answer' (http://localhost:3001/answer) This is where you can help out others and potentially upvoted
 ```
 
-## Screenshot
+## ScreenshotV
 
 **Homepage** <br> <br>
 **Login Page** ![login](./demo/login.png)<br> <br>
