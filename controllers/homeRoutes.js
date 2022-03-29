@@ -1,5 +1,5 @@
 
-const { Employee, Project, Team, Kanban } = require('../models');
+const { Employee, Project, Team, Kanban, Question } = require('../models');
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
 
