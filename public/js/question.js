@@ -1,23 +1,16 @@
-const questionHandler = async function (event) {
-  event.preventDefault();
-  const questionTitle = document.querySelector("#question-title");
-  const questionContent = document.querySelector("#content");
-  
-  if (questionTitle && questionContent) {
-    console.log(questionTitle.value, questionContent.value);
+const questionHandler = async () => {
+  const question_title = document.querySelector("#question-title").value.trim();
+  const question_contents = document.querySelector("#content").value.trim();
+
+  if (question_title && question_contents) {
     const response = await fetch(`/api/question`, {
       method: "POST",
-      body: JSON.stringify({
-        question_contents: questionContent.value,
-        question_title: questionTitle.value, 
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
+      body: JSON.stringify({ question_title, question_contents }),
+      headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
-      document.location.replace("/answer");
+      document.location.replace("/question");
     } else {
       alert("Failed to create question");
     }
@@ -25,5 +18,28 @@ const questionHandler = async function (event) {
 };
 
 document
-  .querySelector("#createQuestion")
-  .addEventListener("click", questionHandler);
+  .querySelector("#question-form")
+  .addEventListener("submit", questionHandler);
+
+//DELETE QUESTION
+
+async function deleteQuestionHandler(event) {
+  event.preventDefault();
+
+  const response = await fetch(`api/question`, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    document.location.replace("/question");
+  } else {
+    alert(response.statusText);
+  }
+}
+
+document
+  .querySelector("#deleteButton")
+  .addEventListener("click", deleteQuestionHandler);
+
+//ANSWER QUESTION
+
