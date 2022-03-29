@@ -23,23 +23,19 @@ document
 
 //DELETE QUESTION
 
-async function deleteQuestionHandler(event) {
+const deleteQuestionHandler = async (event) => {
   event.preventDefault();
-
-  const response = await fetch(`api/question`, {
-    method: "DELETE",
+  const id = event.target.getAttribute('data-id');
+  const response = await fetch(`/api/question/${id}`, {
+      method: 'DELETE'
   });
-
-  if (response.ok) {
-    document.location.replace("/question");
+  if (!response.ok) {
+      alert('Failed to delete question');
   } else {
-    alert(response.statusText);
-  }
+      document.location.reload();
+  } 
 }
-
 document
-  .querySelector("#deleteButton")
-  .addEventListener("click", deleteQuestionHandler);
-
-//ANSWER QUESTION
+  .querySelector(".delete-btn")
+  .addEventListener('click', deleteQuestionHandler);
 
