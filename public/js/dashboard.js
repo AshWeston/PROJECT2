@@ -1,10 +1,44 @@
 const table = document.querySelector('.table');
 const editForm = table.nextElementSibling;
 let formID;
-const toggleElement = (form) => {
+let team = [];
+
+const toggleElement = form => {
     if (form.classList.contains('hidden')) {
         form.classList.remove("hidden");
     }else form.classList.add("hidden")
+}
+
+const createBtn = event => {
+  event.preventDefault();
+  const form = event.target;
+  const name = form.querySelector('#name').value;
+  let check
+  for (let i=0; i<team.length; i++ ) {
+    if (name == team[i] || team == '') {
+      check= true
+    }
+  }
+  if (check) {return};
+  const btnHtml = `<button type="button" class="nameBtn rounded-full bg-green-600 text-gray-300 focus:outline-none hover:text-gray-100 py-1 p-4 mr-1 ">${name} X</button>`;
+  form.insertAdjacentHTML("afterend", btnHtml); 
+  team.push(name);
+  delBtn();
+}
+
+const delBtn = () => {
+  const delBtn = document.querySelectorAll('.nameBtn')
+  delBtn.forEach((currentBtn) => {
+  currentBtn.addEventListener('click', (event) => {
+    const clickedBtn = event.target;
+    clickedBtn.remove();
+    for (let i = 0; i < team.length; i++) {
+      if (team[i] == delBtn.innerHTML) {
+        team.splice(i,i);
+      }
+    } 
+  })
+})
 }
 
 const createProjectFormHandler = async (event) => {
@@ -120,6 +154,11 @@ document
     .querySelector('#create-project-form')
     .addEventListener('submit', createProjectFormHandler);
 
+// PUT request to project model to update project in database
 document
     .querySelector('#update-project-form')
     .addEventListener('submit', EditFormHandler);
+
+// // add member to the list 
+// document.querySelector('#create-team-form')
+//         .addEventListener('submit',createBtn)

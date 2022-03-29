@@ -1,6 +1,5 @@
 // import Sortable from 'sortablejs';
 
-
 function toggleCardForm(form) {
     if (form.classList.contains('hidden')) {
         form.classList.remove("hidden");
@@ -17,19 +16,32 @@ function addCard_FormHandler(event) {
 async function createCard(form) {
     const content = form.querySelector('[name="body"]').value;
     // const columnTitle = form.parentNode.children[0];
-    const newCardHTML = `<div class="card bg-green-600 text-gray-300 my-3 p-2">
-    <p>${content}</p>
-    <small>added by  </small>
-  </div>
-  ` 
     // add html segment to the board
     const list = form.parentNode.querySelector('.card-list')
-    list.children[0].insertAdjacentHTML("afterend", newCardHTML);  
     toggleCardForm(form);
-
     // clear input field
     form.reset();
+    const column = list.dataset.column;
+    const project_id = list.dataset.project_id;
+    postCard(column,content,project_id)
+}
 
+
+// fetch POST request for new card to database
+const postCard = async (column,content,project_id) => {
+  const response = await fetch(`../api/kanban/${project_id}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({column,content}),
+  })
+  if (response.ok) {
+    // If successful, reload current page
+    location.reload();
+  } else {
+    alert('Fail to create project');
+  }
 }
 
 // drag n drop 
@@ -41,10 +53,28 @@ function dragItems(tagname) {
         name: "shared",
       },
       filter: "drag-ignore",
-      sort: true
-    });
+      sort: true,
+      onAdd: function (event) {
+        const card = event.item;
+        const cardId = card.dataset.id;
+        const newcolumn = event.item.parentNode.dataset.column
+        // console.log(card)
+        // console.log(cardId,newcolumn);
+        updateCardColumn(cardId,newcolumn)
+      }
+    }
+    );
   }
-
+// fetch PUT request to card's new position to database 
+const updateCardColumn = async (cardId,request) => {
+  const teamData = await fetch(`../api/kanban/${cardId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({request}),
+  })
+}
 
 const addNoteBtn = document.querySelectorAll('.add-note')
 addNoteBtn.forEach((currentBtn) => {
@@ -71,5 +101,4 @@ cardForm.forEach((form) => {
 
 dragItems(`to-do`);
 dragItems(`in-progress`);
-// dragItems(`review`);
-// dragItems(`done`);
+dragItems(`done`);
