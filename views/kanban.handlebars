@@ -6,7 +6,7 @@
             {{#each todoCards as |card|}}
             <div class="card bg-green-600 text-gray-300 my-3 p-2" data-id="{{card.id}}">
               <div class="flex flex-wrap justify-between"> 
-                <p class="card-content">card content</p>
+                <p class="card-content">{{card.content}}</p>
                 <button type="button" class=" rounded-md p-1 inline-flex items-center justify-center text-gray-300 hover:text-gray-500 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span class="sr-only">Close menu</span>
                   <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -39,7 +39,7 @@
             {{#each inProgressCards as |card|}}
             <div class="card bg-green-600 text-gray-300 my-3 p-2" data-id="{{card.id}}">
               <div class="flex flex-wrap justify-between"> 
-                <p class="card-content">card content</p>
+                <p class="card-content">{{card.content}}</p>
                 <button type="button" class=" rounded-md p-1 inline-flex items-center justify-center text-gray-300 hover:text-gray-500 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span class="sr-only">Close menu</span>
                   <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -72,7 +72,7 @@
               {{#each doneCards as |card|}}
               <div class="card bg-green-600 text-gray-300 my-3 p-2" data-id="{{card.id}}">
                 <div class="flex flex-wrap justify-between"> 
-                  <p class="card-content">card content</p>
+                  <p class="card-content">{{card.content}}</p>
                   <button type="button" class=" rounded-md p-1 inline-flex items-center justify-center text-gray-300 hover:text-gray-500 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                     <span class="sr-only">Close menu</span>
                     <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
