@@ -1,23 +1,28 @@
-
 # Guru
 
-## Table of Content: 
-* [Deploy link](#Deploy-link)
-* [Description](#Description)
-* [User Guide](#User-Guide)
-* [Screenshot](#Screenshot)
-* [Video Demo](#Video-demo)
+## Table of Content:
+
+- [Guru](#guru)
+  - [Table of Content:](#table-of-content)
+  - [Deploy Link](#deploy-link)
+  - [Description](#description)
+  - [User Guide](#user-guide)
+  - [ScreenshotV](#screenshotv)
+<!-- * [Video Demo](#Video-demo) -->
 
 ## Deploy Link
+
 https://guru-heroku-deploy.herokuapp.com/
 
-## Description 
+## Description
+
 Guru is a PMS (Project Management System) application design for digital team collaboration.
 
 ## User Guide
-***This guide is for using the Heorku deployed version of Guru.*** 
 
-***If you want to clone the repository and deploy your own version, [Click here](./README_deploy.md) redirect to the self-deployed guide***
+**_This guide is for using the Heorku deployed version of Guru._**
+
+**_If you want to clone the repository and deploy your own version, [Click here](./README_deploy.md) redirect to the self-deployed guide_**
 
 ```
 '/' (http://localhost:3001) This is the homepage for Guru
@@ -33,7 +38,8 @@ Guru is a PMS (Project Management System) application design for digital team co
 '/answer' (http://localhost:3001/answer) This is where you can help out others and potentially upvoted
 ```
 
-## Screenshot
+## ScreenshotV
+
 **Homepage** <br> <br>
 **Login Page** ![login](./demo/login.png)<br> <br>
 
@@ -41,9 +47,10 @@ Guru is a PMS (Project Management System) application design for digital team co
 
 **Dashboard page** ![dashboard](./demo/dashboard.png)<br> <br>
 
-**Question page** <br> <br>
+**Question page** ![question](./demo/question.png) <br> <br>
 
-**Answer page**  <br> <br>
+**Answer page** ![answer](./demo/answer.png) <br> <br>
 
-## Video Demo
+<!-- ## Video Demo -->
+
 <!-- [![Video demo](./commencing.png)] -->
