@@ -1,0 +1,14 @@
+[
+    {
+        "column": "To do",
+        "content": "test kanban in progress",
+        "creator_id": 1,
+        "project_id":1
+    },
+    {
+        "column": "In progress",
+        "content": "test kanban in progress",
+        "creator_id": 2,
+        "project_id":1
+    }
+]

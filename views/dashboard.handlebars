@@ -2,7 +2,11 @@
   <div class="max-w-2xl mx-auto my-1" >
         <div class="create-project  my-4">
           <button id="create-project" class="rounded-full bg-green-600 text-gray-300 focus:outline-none hover:text-gray-100 py-1 p-4 mr-1">+ Create project</button>
+<<<<<<< HEAD
+          <form id="create-project-form" class="w-full max-w-xl rounded-lg add-card hidden" autocomplete="off" >
+=======
           <form id="create-project-form" class="w-full max-w-xl rounded-lg add-card hidden">
+>>>>>>> main
             <div class="flex flex-wrap -mx-3 mb-6">
                 <div class="w-full md:w-full px-3 mb-2 mt-2">
                   <label for="name">Project name:</label>
@@ -20,7 +24,11 @@
                 </div>
                 <div class="w-full md:w-full px-3 mb-2 mt-2">
                   <label for="name">Assigned team:</label>
+<<<<<<< HEAD
+                  <input autocomplete="off"  id="team" class="form-select" list="list" />
+=======
                   <input id="team" class="form-select" list="list" />
+>>>>>>> main
                     <datalist id="list">
                       {{#each teams as |team|}}
                       <option value="{{team.team_name}}"></option>
@@ -33,11 +41,15 @@
                 </div>
               </div>
           </form>
+<<<<<<< HEAD
+        </div> 
+=======
         </div>
         <div class="create-question">
           <!-- redirect to question page -->
           <a id="to-question" href="/questions" class="rounded-full bg-green-600 text-gray-300 focus:outline-none hover:text-gray-100 py-1 p-4 mr-1">+ Create question</a>
         </div>    
+>>>>>>> main
     </div>
   <div class="max-w-4xl mx-auto w-full md:w-full my-5 rounded-md border border-gray-700 p-4" >
         <!-- project list -->
@@ -92,7 +104,7 @@
                       {{../employee.team_name}}
                     </td>
                     <td class="px-6 py-4 text-right">
-                      <button type="button" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Kanban</button>
+                      <a href="/projects/{{project.id}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Kanban</a>
                     </td>
                     <td class="px-6 py-4 text-right">
                       <button type="button" class="font-medium text-blue-600 dark:text-blue-500 hover:underline editBtn" data-id="{{project.id}}">Edit</button>
@@ -135,7 +147,10 @@
     
         
 <script src="/js/dashboard.js"></script>
+<<<<<<< HEAD
+=======
 =======
 <div class="container mx-auto mt-44 flex justify-center items-center h-96">
    
 </div>
+>>>>>>> main

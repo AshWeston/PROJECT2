@@ -3,12 +3,14 @@
         "project_name": "Scorpio",
         "start_date": "2000-01-01",
         "end_date": "2023-06-01",
-        "team_id": null
+        "team_id": 1,
+        "creator_id":1
     },
     {
         "project_name": "Scorpio1",
         "start_date": "2020-01-01",
         "end_date": "2023-06-01",
-        "team_id": null
+        "team_id": 1,
+        "creator_id":1
     }
 ]
